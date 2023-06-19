@@ -1,0 +1,132 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+
+# Components
+	- Header
+    - Footer
+	- Comments
+	- Widgets
+	- Media
+	- Captions
+	- Galleries
+
+--------------------------------------------------------------*/
+
+// ---------------------- NAVIGATION ----------------------------*/
+.site-header {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+}
+
+
+#menu-item-35 {
+    border: 1px solid red;
+}
+
+.sub-menu {
+    display: none;
+}
+
+.menu-item:hover .sub-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    top: 5%;
+    z-index: 10;
+    padding-top: 3rem;
+    background-color: $primary-main;
+    color: $primary-background;
+}
+
+.menu-item:hover .sub-menu a {
+    color: $primary-background;
+    display: flex;
+    float: right;
+    // justify-content: end;
+    border-bottom: 1px solid $primary-background;
+    width: 90%;
+    padding: 2rem 0 0 0;
+    margin: 0;
+    font-size: 1.5em;
+}
+
+
+
+
+/* Style the current menu item */
+.current-menu-item a {
+    font-weight: bold;
+}
+
+.logo {
+    padding-top: 1rem;
+    flex-grow: 3;
+}
+
+.second-navigation span {
+    font-size: 3rem;
+    font-weight: 500;
+    padding-top: 2rem;
+    margin: 0;
+}
+
+
+// ---------------------- FOOTER ----------------------------*/
+
+.footer {
+    background-color: $primary-main;
+    position: relative;
+
+    p {
+        color: $primary-background;
+    }
+
+    &-social {
+        display: flex;
+        flex-direction: row;
+        //   padding: 2rem;
+        margin: 0;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+
+    &-social__socials {
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
+        border: $primary-background 3px solid;
+        width: 33%;
+    }
+
+    &-container {
+        border: $primary-background 3px solid;
+        width: 80%;
+
+        p {
+            text-transform: capitalize;
+        }
+    }
+
+    &-side {
+        position: absolute;
+        top: 50%;
+        right: 0;
+
+
+        &__heading {
+            color: $primary-background;
+            font-size: 4.8rem;
+            font-weight: 700;
+            letter-spacing: .5rem;
+            transform: rotate(90deg);
+            padding: 0;
+            margin: 0;
+        }
+
+    }
+}

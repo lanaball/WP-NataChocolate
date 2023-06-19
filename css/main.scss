@@ -1,0 +1,36 @@
+/* 
+Theme Name: national-council
+Description: First theme for Yoobee Class 
+Author: Allana Kennedy 
+Version: 1.0 
+*/
+
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Base
+    - Colours
+	- Typography
+    - Links
+    - Buttons
+	- Layouts
+	- Forms
+# Components
+	- Header
+    - Footer
+	- Comments
+	- Widgets
+	- Media
+	- Captions
+	- Galleries
+# Specifics
+    - Posts
+    - Pages
+    - Front-Page
+
+--------------------------------------------------------------*/
+
+@import './_base.scss';
+@import './_components';
+@import './_specifics.scss'
