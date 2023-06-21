@@ -4,11 +4,11 @@
     <div class="hero-head">
         <h1>Next generation chocolate, created for sustainability</h1>
         <p>Nata is a creator of sustainable craft cacao from Costa Rica. Focused on top flavour profiles and showcasing Costa Rica’s high quality cacao.</p>
-        <button>Shop</button>
+        <a href="http://nata-craft-cacao.local/chocolate/"><button>Shop</button></a>
     </div>
-    
-        <img class="hero-image" src=" <?php echo get_template_directory_uri(); ?>./images/cacaohandssmll.jpg" alt="cacao hands">
-    
+
+    <img class="hero-image" src=" <?php echo get_template_directory_uri(); ?>./images/cacaohandssmll.jpg" alt="cacao hands">
+
 
     <div class="hero-body">
         <div class="hero-body__icons">
@@ -16,11 +16,12 @@
             <img src=" <?php echo get_template_directory_uri(); ?>./images/gluten1.png" alt="gluten">
             <img src=" <?php echo get_template_directory_uri(); ?>./images/organic.png" alt="organic">
         </div>
-
+        <hr class="hero-body__hr">
         <div class="hero-body__about">
-            <h2>Founded by Natalia Quirōs and Brian Ham. </h2>
+            <h2 class="hero-body__subtitle">Founded by Natalia Quirōs and Brian Ham. </h2>
             <p>Nata is committed to sustainable and ethical chocolate making. Working closely with farmers in Costa Rica to source the best quality cacao.</p>
         </div>
+        <hr class="hero-body__hr">
     </div>
 </main>
 
@@ -34,29 +35,32 @@
             'post_type' => 'chocolate',
             'posts_per_page' => 3,
         ));
-
+    
         if ($chocolates->have_posts()) : ?>
             <?php while ($chocolates->have_posts()) : $chocolates->the_post(); ?>
 
                 <?php get_template_part('template-parts/content', 'chocolate-card'); ?>
-
+ 
             <?php endwhile; ?>
         <?php endif; ?>
-        <?php wp_reset_postdata();
-        ?>
-
+       
+        <?php wp_reset_postdata(); ?>
+      
     </div>
-    <button class="fp-btn">See All</button>
+    <a href="http://nata-craft-cacao.local/chocolate/">
+        <button class="fp-btn">See More</button>
+    </a>
+
 </section>
 
 
-<section>
+<section class="fp">
     <h2 class="fp-title">Recent Articles</h2>
 
-    <div class="blog-container">
+    <div class="fp-container">
         <!-- custom secondary loop -->
         <?php $blog = new WP_Query(array(
-            'post_type' => 'post',
+            'post_type' => 'blog',
             'posts_per_page' => 3,
         ));
 
@@ -71,14 +75,11 @@
         <?php wp_reset_postdata();
         ?>
     </div>
+    <a href="http://nata-craft-cacao.local/blog/">
+        <button class="fp-btn">See More</button>
+    </a>
 </section>
 
-<div class="social-media">
-    <img class="insta-pic" src=" <?php echo get_template_directory_uri(); ?>./images/cacao.jpg" alt="cacao on tree">
-    <img class="insta-pic" src=" <?php echo get_template_directory_uri(); ?>./images/choco-beans.jpg" alt="beans">
-    <img class="insta-pic" src=" <?php echo get_template_directory_uri(); ?>./images/truffles.jpg" alt="truffles">
-    <img class="insta-pic" src=" <?php echo get_template_directory_uri(); ?>./images/choco-stack.jpg" alt="chocolate stack">
-    <button class="secondary-btn">@craft_cacaocr</button>
-</div>
+
 
 <?php get_footer(); ?>

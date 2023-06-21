@@ -7,15 +7,14 @@ function add_my_assets()
 {
     // links style and javascript
     wp_enqueue_style('main', get_template_directory_uri() . '/css/main.css');
-    wp_enqueue_script('main', get_template_directory_uri() . '/js/main.js', array(), '1.0', true);
+    wp_enqueue_script('main', get_template_directory_uri() . '/js/main.js', array(), '1.0', false);
 
+    wp_enqueue_script('jquery');
     // material UI icons
     wp_enqueue_style('material-icons', 'https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,200,0,200');
-
 }
 add_action('wp_enqueue_scripts', 'add_my_assets');
 
-// wp_enqueue_ is the hook then add it to add_my_assets is the function, spelling important, no s on the single script
 
 
 
@@ -29,7 +28,7 @@ function enqueue_custom_fonts()
     if (!is_admin()) {
         wp_register_style('montserrat', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
         wp_register_style('raleway', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Raleway:wght@400;500;600&display=swap');
-       
+
         wp_enqueue_style('montserrat');
         wp_enqueue_style('raleway');
     }
@@ -52,11 +51,10 @@ add_action('init', 'add_my_menus');
 
 
 
-
 // -------------------    adds theme supports   -------------------
 function add_my_theme_supports()
 {
-  
+
     // Add default posts and comments RSS feed links to head.
     add_theme_support('automatic-feed-links');
     add_theme_support('post-thumbnails');
@@ -72,7 +70,6 @@ function add_my_theme_supports()
             'flex-height' => true,
         )
     );
-
 }
 add_action('after_setup_theme', 'add_my_theme_supports');
 
@@ -129,8 +126,36 @@ add_action('init', 'add_chocolate_taxonomy');
 
 
 
+
+// -------------------  custom post type   -------------------
+function add_blog_post_type()
+{
+    register_post_type('blog', array(
+        'labels' => array(
+            'name' => __('Blogs'),
+            'singular_name' => __('Blogs'),
+            'add_new_item' => 'Add New Blog',
+            'edit_item' => 'Edit Blog',
+            'all_items' => 'All Blogs',
+            'view_item' => 'View Blog',
+            'search_items' => 'Search Blogs',
+            'not_found' => 'No Blogs Found',
+            'not_found_in_trash' => 'No Blogs Found in Trash',
+        ),
+        'public' => true,
+        'has_archive' => true,
+        'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
+        'taxonomies' => array('blog-type'),
+    ));
+}
+add_action('init', 'add_blog_post_type');
+
+
+
+
+
 // -------------------  function to disable gutenberg   -------------------
-function my_disable_gutenberg($current_status, $post_type) 
+function my_disable_gutenberg($current_status, $post_type)
 {
 
     // Disabled post types

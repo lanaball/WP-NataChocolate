@@ -17,10 +17,13 @@
 
         <header id="masthead" class="site-header">
 
-            <nav id="site-navigation" class="main-navigation">
-                <!-- <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"> <span class="material-symbols-rounded"> sort </span> </button> -->
 
-                <div class="main-navigation__container">
+            <div class="logo">
+                <h3>nata</h3>
+            </div>
+           
+            <nav id="site-navigation" class="main-navigation">
+               <div class="main-navigation__container">
                     <?php
                     wp_nav_menu(
                         array(
@@ -29,18 +32,15 @@
                     );
                     ?>
                 </div>
+            </nav>
 
-            </nav><!-- #site-navigation -->
-            <div class="logo">
-                <h3>nata</h3>
-            </div>
-            <div class="second-navigation">
+            <!-- <div class="second-navigation">
                 <a href="#">
                     <span class="material-symbols-rounded"> shopping_cart </span>
                 </a>
                 <a href="">
                     <span class="material-symbols-rounded"> person </span>
                 </a>
-            </div>
+            </div> -->
 
         </header><!-- #masthead -->
