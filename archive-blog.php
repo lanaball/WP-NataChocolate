@@ -1,6 +1,13 @@
 <?php get_header(); ?>
 
 <main>
+
+    <article class="quote center-text">
+        <hr>
+        <h5> "Cacao vs. Cocoa. While cacao refers to cacao beans that have not been roasted, cocoa is made of beans that have been roasted. So, a product that is labeled cacao is the raw bean and is often packaged as vegan chocolate that has been minimally processed with no additives." </h5>
+        <hr>
+    </article>
+
     <h1 class="blog-title">Recent Articles</h1>
     <div class="blog-container">
 
@@ -22,12 +29,12 @@
                     </div>
                     <div class="blog-head__content">
                         <hr>
-                        <h1 class="page-title"> <?php the_title(); ?> </h1>
+                        <h3 class="blog-head__subtitle"> <?php the_title(); ?> </h3>
                         <hr>
                         <p>
                             <?php the_content(); ?>
                         </p>
-                        <a href="<?php echo get_post_permalink(); ?>"><button>See More</button> </a>
+                        <a href="<?php echo get_post_permalink(); ?>"><button>Read More</button> </a>
                     </div>
 
                 </div>

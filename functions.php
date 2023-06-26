@@ -65,7 +65,7 @@ function add_my_theme_supports()
         'custom-logo',
         array(
             'height'      => 250,
-            'width'       => 250,
+            'width'       => 350,
             'flex-width'  => true,
             'flex-height' => true,
         )
@@ -76,7 +76,7 @@ add_action('after_setup_theme', 'add_my_theme_supports');
 
 
 
-// -------------------  custom post type   -------------------
+// -------------------  custom chocolate post type   -------------------
 function add_chocolate_post_type()
 {
     register_post_type('chocolate', array(
@@ -102,7 +102,7 @@ add_action('init', 'add_chocolate_post_type');
 
 
 
-// -------------------  custom taxonomy   -------------------
+// -------------------  custom chocolate taxonomy   -------------------
 function add_chocolate_taxonomy()
 {
     register_taxonomy('chocolate-type', 'chocolate', array(
@@ -127,7 +127,7 @@ add_action('init', 'add_chocolate_taxonomy');
 
 
 
-// -------------------  custom post type   -------------------
+// -------------------  custom blog post type   -------------------
 function add_blog_post_type()
 {
     register_post_type('blog', array(
@@ -150,6 +150,30 @@ function add_blog_post_type()
 }
 add_action('init', 'add_blog_post_type');
 
+
+
+// -------------------  custom event post type   -------------------
+function add_event_post_type()
+{
+    register_post_type('event', array(
+        'labels' => array(
+            'name' => __('Events'),
+            'singular_name' => __('Events'),
+            'add_new_item' => 'Add New Event',
+            'edit_item' => 'Edit Event',
+            'all_items' => 'All Events',
+            'view_item' => 'View Event',
+            'search_items' => 'Search Events',
+            'not_found' => 'No Events Found',
+            'not_found_in_trash' => 'No Events Found in Trash',
+        ),
+        'public' => true,
+        'has_archive' => true,
+        'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
+        'taxonomies' => array('event-type'),
+    ));
+}
+add_action('init', 'add_event_post_type');
 
 
 
@@ -208,3 +232,51 @@ function theme_customize_register($wp_customize)
     ));
 }
 add_action('customize_register', 'theme_customize_register');
+
+
+// ----------- Register shortcode  -----------
+function latest_post_shortcode($atts)
+{
+    ob_start();
+
+    // Query the latest post
+    $latest_post = new WP_Query(array(
+        'post_type' => 'event',
+        'posts_per_page' => 1,
+    ));
+
+    // Check if there is a latest post
+    if ($latest_post->have_posts()) {
+        while ($latest_post->have_posts()) {
+            $latest_post->the_post();
+?>
+            <div class="latest-post">
+                <h2><?php the_title(); ?></h2>
+                <div>
+                    <h4><?php the_field('date'); ?> <span>,
+                            <?php the_field('time'); ?>
+                        </span></h4>
+
+
+                </div>
+
+
+                <div class="entry-content">
+                    <p class="subtitle">
+                        <?php the_field('event_description'); ?>
+                    </p>
+                    <?php the_excerpt(); ?>
+                </div>
+                <a href="<?php echo get_permalink(); ?>"><button>See More</button> </a>
+            </div>
+<?php
+        }
+    } else {
+        echo 'No posts found.';
+    }
+
+    wp_reset_postdata();
+
+    return ob_get_clean();
+}
+add_shortcode('latest_post', 'latest_post_shortcode');

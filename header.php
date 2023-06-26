@@ -19,11 +19,14 @@
 
 
             <div class="logo">
-                <h3>nata</h3>
+                <a href="http://nata-craft-cacao.local/">
+                    <img src="<?php echo get_template_directory_uri(); ?>./images/natalogo.png" alt="logo">
+                </a>
+
             </div>
-           
-            <nav id="site-navigation" class="main-navigation">
-               <div class="main-navigation__container">
+
+            <nav id=" site-navigation" class="main-navigation">
+                <div class="main-navigation__container">
                     <?php
                     wp_nav_menu(
                         array(
@@ -34,13 +37,8 @@
                 </div>
             </nav>
 
-            <!-- <div class="second-navigation">
-                <a href="#">
-                    <span class="material-symbols-rounded"> shopping_cart </span>
-                </a>
-                <a href="">
-                    <span class="material-symbols-rounded"> person </span>
-                </a>
+            <!-- <div class="menu-toggle">
+                <span class="material-symbol-rounded">sort</span>
             </div> -->
 
         </header><!-- #masthead -->

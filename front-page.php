@@ -4,7 +4,7 @@
     <div class="hero-head">
         <h1>Next generation chocolate, created for sustainability</h1>
         <p>Nata is a creator of sustainable craft cacao from Costa Rica. Focused on top flavour profiles and showcasing Costa Rica’s high quality cacao.</p>
-        <a href="http://nata-craft-cacao.local/chocolate/"><button>Shop</button></a>
+        <a href="http://nata-craft-cacao.local/about-us/"><button>See More</button></a>
     </div>
 
     <img class="hero-image" src=" <?php echo get_template_directory_uri(); ?>./images/cacaohandssmll.jpg" alt="cacao hands">
@@ -35,22 +35,23 @@
             'post_type' => 'chocolate',
             'posts_per_page' => 3,
         ));
-    
+
         if ($chocolates->have_posts()) : ?>
             <?php while ($chocolates->have_posts()) : $chocolates->the_post(); ?>
 
                 <?php get_template_part('template-parts/content', 'chocolate-card'); ?>
- 
+
             <?php endwhile; ?>
         <?php endif; ?>
-       
-        <?php wp_reset_postdata(); ?>
-      
-    </div>
-    <a href="http://nata-craft-cacao.local/chocolate/">
-        <button class="fp-btn">See More</button>
-    </a>
 
+        <?php wp_reset_postdata(); ?>
+
+    </div>
+    <div >
+        <a  href="http://nata-craft-cacao.local/chocolate/">  <button class="fp-btn">See More</button>
+    </a>  
+    </div>
+  
 </section>
 
 
@@ -75,11 +76,13 @@
         <?php wp_reset_postdata();
         ?>
     </div>
-    <a href="http://nata-craft-cacao.local/blog/">
-        <button class="fp-btn">See More</button>
-    </a>
-</section>
+    <div>
+        <a class="" href="http://nata-craft-cacao.local/blog/">
+            <button class="fp-btn ">See More</button>
+        </a>
+    </div>
 
+</section>
 
 
 <?php get_footer(); ?>

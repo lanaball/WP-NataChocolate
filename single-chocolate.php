@@ -42,7 +42,7 @@
                     </div>
 
                     <hr>
-                    <button class="chocolate-btn single-btn"> Add to Cart</button>
+                    <!-- <button class="chocolate-btn single-btn"> Add to Cart</button> -->
                 </div>
             </div>
 

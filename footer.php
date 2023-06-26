@@ -16,8 +16,12 @@
 
     <div class="foot">
         <div class="foot-head center-text">
-            <p>Join our newsletter to stay up to date on features and releases</p>
-            <input type="email" placeholder="email address...">
+            <form class="newsletter-form" action="mailto:craft_cacaocr@gmail.com" method="post" encType="text">
+                <p>Join our newsletter to stay up to date on features and releases</p>
+                <input type="email" name="email" id="email" placeholder="email address...">
+                <input id="newsletter-form__btn" class="submit__btn" type="post" value="Join" />
+            </form>
+
         </div>
 
         <div class="foot-social">
@@ -34,34 +38,45 @@
 
 
         <div class="foot-container">
-            <p> Sustainability </p>
-            <p> Supply </p>
-            <p> Farm Visits </p>
-            <p> Markets </p>
+            <a href="http://nata-craft-cacao.local/events/">
+                <p> Sustainability </p>
+                <p> Supply </p>
+                <p> Farm Visits </p>
+                <p> Markets </p>
+            </a>
+        </div>
+
+        <div class=" foot-container">
+            <a href="http://nata-craft-cacao.local/blog/">
+                <p> Blog </p>
+                <p> Our Certificates </p>
+                <p> Packaging Recycling </p>
+            </a>
+
         </div>
 
         <div class="foot-container">
-            <p> Blog </p>
-            <p> Our Certificates </p>
-            <p> Packaging Recycling </p>
+            <a href="http://nata-craft-cacao.local/contact/">
+                <p> Contact us </p>
+                <p> Shipping </p>
+                <p> returns </p>
+                <p> terms and conditions </p>
+            </a>
+
         </div>
 
         <div class="foot-container">
-            <p> Contact us </p>
-            <p> Shipping </p>
-            <p> returns </p>
-            <p> terms and conditions </p>
-        </div>
+            <a href="http://nata-craft-cacao.local/events/">
+                <p> subscriptions </p>
+                <p> new releases </p>
+                <p> shop all </p>
+                <p> classes </p>
+            </a>
 
-        <div class="foot-container">
-            <p> subscriptions </p>
-            <p> new releases </p>
-            <p> shop all </p>
-            <p> classes </p>
         </div>
 
         <div class="foot-side">
-            <h3 class="foot-side__heading">nata</h3>
+            <h2 class="foot-side__heading">nata</h2>
         </div>
     </div>
     <div class="foot-footer">
